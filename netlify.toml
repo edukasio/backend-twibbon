@@ -7,3 +7,8 @@
 
 [build.environment]
   NODE_VERSION = "18"
+[build]
+  functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"
