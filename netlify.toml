@@ -1,4 +1,4 @@
 [[redirects]]
-from = "/functions/*"
-to = "/.netlify/functions/:splat"
-status = 200
+  from = "/"
+  to = "/.netlify/functions/get_click"
+  status = 200
