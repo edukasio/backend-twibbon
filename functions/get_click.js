@@ -1,21 +1,19 @@
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 
-exports.handler = async () => {
-    try {
-        const filePath = path.resolve(__dirname, "../data/click_data.json");
-        const data = fs.readFileSync(filePath, "utf8");
-        const jsonData = JSON.parse(data);
+exports.handler = async function (event, context) {
+  try {
+    const filePath = path.join(__dirname, "../data/click_data.json");
+    const data = await fs.readJson(filePath);
 
-        return {
-            statusCode: 200,
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(jsonData),
-        };
-    } catch (error) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "Gagal membaca data JSON" }),
-        };
-    }
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data)
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Gagal membaca data" })
+    };
+  }
 };
