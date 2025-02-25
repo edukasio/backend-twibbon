@@ -1,14 +1,16 @@
-[[redirects]]
-  from = "/"
-  to = "/.netlify/functions/get_click"
-  status = 200
+# Konfigurasi Build
 [build]
   functions = "functions"
 
 [build.environment]
   NODE_VERSION = "18"
-[build]
-  functions = "functions"
 
+# Konfigurasi Functions
 [functions]
   node_bundler = "esbuild"
+
+# Redirect hanya untuk API Functions, bukan untuk seluruh halaman!
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
