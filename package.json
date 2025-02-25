@@ -1,0 +1,13 @@
+{
+  "name": "backend-twibbon",
+  "version": "1.0.0",
+  "description": "API Backend untuk menghitung klik twibbon",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "echo 'No build step needed!'"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  }
+}
